@@ -10,11 +10,19 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Post {
-    id        Int      @id @default(autoincrement())
-    name      String
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+model Company {
+    id            Int          @id @default(autoincrement())
+    name          String
+    careerPageUrl String
+    jobPostings   JobPosting[]
+}
 
-    @@index([name])
+model JobPosting {
+    id          Int      @id @default(autoincrement())
+    companyId   Int
+    company     Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+    title       String?
+    location    String?
+    description String?
+    createdAt   DateTime @default(now())
 }

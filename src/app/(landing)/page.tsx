@@ -3,14 +3,16 @@ import { buttonVariants } from "@/components/ui/button";
 import { HydrateClient } from "@/trpc/server";
 import Link from "next/link";
 import Ticker from "./ticker";
+import { BackgroundBeams } from "@/components/ui/background-beams";
+import FeedbackForm from "@/components/feedback-form";
 
 export default async function Home() {
 
   return (
     <HydrateClient>
-      <main className="max-h-full">
+      <main >
         <MaxWidthWrapper className="mt-6 sm:mt-16 " >
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 scrollbar-hide">
           <div className="flex flex-col gap-6">
             <div >
               <div className="flex flex-col gap-4">
@@ -35,14 +37,11 @@ export default async function Home() {
                 </Link>
             </div>
           </div>
-
-            <div >
-              <div>
-                <Ticker/>
-              </div>
-            </div>
+            <Ticker />
           </div>
+            <FeedbackForm/>
         </MaxWidthWrapper>
+        <BackgroundBeams />
      </main>
     </HydrateClient>
   );
