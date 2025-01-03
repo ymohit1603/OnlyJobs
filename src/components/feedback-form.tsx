@@ -44,7 +44,7 @@ const FeedbackForm = () => {
             <div className=" p-6 flex flex-col items-center justify-center rounded-xl shadow-lg">
                 <div className="flex flex-col items-center space-y-2">
                     {/* Icon (Placeholder for now) */}
-                    <span className="relative md:top-[-80px] md:left-[-90px] p-3 border border-zinc-700 rounded-xl text-[#CDF140]">Contact Me</span>
+                    <span className="relative md:top-[-80px] md:left-[-90px] p-3 border border-zinc-700 rounded-xl ">Contact Me</span>
                     <p className="text-3xl font-semibold">Recommendations</p>
                     <p className="text-zinc-500 max-w-sm text-center">
                         Have suggestions or ideas for improvement? I would love to hear from you!
@@ -92,7 +92,7 @@ const FeedbackForm = () => {
                                         <textarea
                                             placeholder="Your Message"
                                             {...field}
-                                            className="w-full rounded-md bg-black p-3 text-white"
+                                            className="w-full text-sm rounded-md bg-black p-3"
                                         />
                                     </FormControl>
                                 </FormItem>
@@ -100,9 +100,10 @@ const FeedbackForm = () => {
                         />
       
                         {/* Submit Button */}
-                        <button className="shadow-[0_4px_14px_0_rgba(205,241,64,0.4)] hover:shadow-[0_6px_20px_rgba(205,241,64,0.3)] hover:bg-[rgba(205,241,64,0.9)] px-8 py-2 bg-[#CDF140] rounded-md text-black font-medium transition duration-200 ease-linear">
+                        <button className="shadow-[0_4px_14px_0_rgba(205,241,64,0.4)] hover:shadow-[0_6px_20px_rgba(205,241,64,0.3)] hover:bg-[rgba(205,241,64,0.9)] px-6 py-2 bg-[#CDF140] rounded-xl text-black  transition duration-200 ease-linear">
                             Submit
-                        </button>
+                            </button>
+                            
                     </form>
                 </Form>
             </div>

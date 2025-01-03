@@ -1,7 +1,7 @@
 "use client"
 import { MaxWidthWrapper } from "@/components/max-width-wrapper";
 import Link from "next/link";
-import { Button, buttonVariants } from "./ui/button";
+import {  buttonVariants } from "./ui/button";
 import MenuIcon from "@mui/icons-material/Menu"; // Import MUI Menu icon
 import CloseIcon from "@mui/icons-material/Close";
 import { IconButton } from "@mui/material"; // Import MUI IconButton

@@ -1,6 +1,6 @@
 import { MaxWidthWrapper } from "@/components/max-width-wrapper";
 import { buttonVariants } from "@/components/ui/button";
-import { HydrateClient } from "@/trpc/server";
+
 import Link from "next/link";
 import Ticker from "./ticker";
 import { BackgroundBeams } from "@/components/ui/background-beams";
@@ -9,10 +9,10 @@ import FeedbackForm from "@/components/feedback-form";
 export default async function Home() {
 
   return (
-    <HydrateClient>
-      <main >
+    <div>
+      
         <MaxWidthWrapper className="mt-6 sm:mt-16 " >
-          <div className="flex flex-col gap-6 scrollbar-hide">
+          <div className="flex flex-col gap-6 ">
           <div className="flex flex-col gap-6">
             <div >
               <div className="flex flex-col gap-4">
@@ -32,18 +32,23 @@ export default async function Home() {
               </div>
             </div>
             
-            <div className="flex justify-center">
-                <Link href={""} className={`${buttonVariants({ variant: "default" })} py-3`}>Let&apos;s get hard -{'>'}
+          <div className="flex justify-center">
+              <Link 
+                  href="/job-postings"
+                  className={`${buttonVariants({ variant: "default" })} py-3 cursor-pointer`}
+              >
+                  Let&apos;s get hard &rarr;
                 </Link>
-            </div>
+          </div>
+
           </div>
             <Ticker />
           </div>
             <FeedbackForm/>
-        </MaxWidthWrapper>
-        <BackgroundBeams />
-     </main>
-    </HydrateClient>
+      </MaxWidthWrapper>
+      <BackgroundBeams className="pointer-events-none -z-10" />
+     </div>
+   
   );
 }
 

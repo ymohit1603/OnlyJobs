@@ -18,11 +18,14 @@ model Company {
 }
 
 model JobPosting {
-    id          Int      @id @default(autoincrement())
-    companyId   Int
-    company     Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
-    title       String?
-    location    String?
-    description String?
-    createdAt   DateTime @default(now())
+    id        Int      @id @default(autoincrement())
+    companyId Int
+    company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+    title     String?
+    location  String?
+    jobType   String?
+    tags      String?
+    applyUrl  String
+    posted    DateTime
+    createdAt DateTime @default(now())
 }
