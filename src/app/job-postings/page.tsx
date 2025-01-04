@@ -38,12 +38,12 @@ const JobPostingsPage = async () => {
                 <TableRow key={posting.id}>
                   <TableCell>{job.name}</TableCell>
                   <TableCell>{posting.title ?? '-'}</TableCell>
-                  <TableCell>{(posting.posted as Date) ?.toLocaleDateString() ?? '-'}</TableCell>
+                  <TableCell>{(posting.posted) ?.toLocaleDateString() ?? '-'}</TableCell>
                   <TableCell>{posting.location ?? '-'}</TableCell>
                   <TableCell>{posting.jobType ?? '-'}</TableCell>
                   <TableCell>{posting.tags ?? '-'}</TableCell>
                   <TableCell>
-                    <Link href={posting.applyUrl as string || '#'}>Apply</Link>
+                    <Link href={posting.applyUrl || '#'}>Apply</Link>
                   </TableCell>
                 </TableRow>
               ))}
