@@ -6,10 +6,11 @@ import { createTRPCRouter, publicProcedure } from "../trpc";
 export const jobsRouter = createTRPCRouter({
     getJobs: publicProcedure
         .query(() => {
-            return db.company.findMany({
-                include: {
-                    jobPostings: true
-                }
+            return db.jobPosting.findMany({
+                orderBy: {
+                    posted: 'desc'
+                },
+                take:50,
             });
         })
     
