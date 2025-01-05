@@ -34,7 +34,7 @@ export function NavBar() {
                   Job Postings
                 </Link>
                 <Link
-                  href="#"
+                  href="https://github.com/ymohit1603/OnlyJobs"
                   className={`${buttonVariants({ variant: "default" })} bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white`}
                 >
                   Star this repo
