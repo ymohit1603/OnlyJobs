@@ -10,8 +10,6 @@ export const jobsRouter = createTRPCRouter({
                 orderBy: {
                     posted: 'desc'
                 },
-                take:50,
             });
         })
-    
 })

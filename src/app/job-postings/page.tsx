@@ -1,5 +1,6 @@
 import React from 'react';
 import { api } from "@/trpc/server";
+import { Button } from "@/components/ui/button";
 
 import {
   Table,
@@ -11,10 +12,19 @@ import {
 } from "@/components/ui/table";
 import Link from "next/link";
 
-const JobPostingsPage = async () => {
+const ITEMS_PER_PAGE = 50;
+
+const JobPostingsPage = async ({ searchParams }: { searchParams: { page?: string } }) => {
+  const currentPage = Number(searchParams.page) || 1;
   const jobs = await api.jobs.getJobs();
+
+  const totalPages = Math.ceil(jobs.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const currentJobs = jobs.slice(startIndex, endIndex);
+
   return (
-      <div className="container mx-auto p-8 rounded-xl shadow-lg mt-10 mb-10 bg-gradient-to-br from-gray-900 to-black">
+      <div className="container mx-auto p-8 rounded-2xl shadow-lg mt-10 mb-10 bg-gradient-to-br from-gray-900 to-black">
           <Table className="border border-gray-700">
               <TableHeader>
                 <TableRow className="bg-gradient-to-r from-gray-800 to-gray-900">
@@ -28,7 +38,7 @@ const JobPostingsPage = async () => {
                 </TableRow>
               </TableHeader>
           </Table>
-          {jobs.map((job) => (
+          {currentJobs.map((job) => (
             <div key={job.id}>
               <Table>
                 <TableBody>
@@ -56,6 +66,29 @@ const JobPostingsPage = async () => {
               </Table>
             </div>
           ))}
+
+          {/* Pagination Controls */}
+          <div className="flex justify-center gap-2 mt-4">
+            <Link href={`?page=${Math.max(1, currentPage - 1)}`}>
+              <Button 
+                variant="outline"
+                disabled={currentPage === 1}
+              >
+                Previous
+              </Button>
+            </Link>
+            <span className="flex items-center px-4 text-gray-400">
+              Page {currentPage} of {totalPages}
+            </span>
+            <Link href={`?page=${Math.min(totalPages, currentPage + 1)}`}>
+              <Button 
+                variant="outline"
+                disabled={currentPage >= totalPages}
+              >
+                Next
+              </Button>
+            </Link>
+          </div>
       </div>
   );
 };
