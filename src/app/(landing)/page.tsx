@@ -5,6 +5,10 @@ import Ticker from "./ticker";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 // import FeedbackForm from "@/components/feedback-form";
 import Image from "next/image";
+import EmailIcon from '@mui/icons-material/Email';
+import XIcon from '@mui/icons-material/X';
+
+import { Button } from "@/components/ui/button";
 
 export default async function Home() {
   return (
@@ -59,7 +63,44 @@ export default async function Home() {
             className="object-cover"
             priority
           />
+      </div>
+      
+
+      {/*Footer here*/}
+      <footer className="mt-24 border-t border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="py-8">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-4">
+              <Button
+                variant="ghost"
+                className="text-gray-400 hover:bg-slate-800 hover:text-purple-400 transition-colors duration-200"
+                asChild
+              >
+                <Link href="mailto:mohityadav0330@gmail.com" className="flex items-center gap-2">
+                  <EmailIcon className="text-gray-400 group-hover:text-purple-400" />
+                  <span className="text-gray-400 group-hover:text-purple-400 duration-200 transition-colors ">mohityadav0330@gmail.com</span>
+                </Link>
+              </Button>
+              <Button
+                variant="ghost"
+                className="text-gray-400 hover:bg-slate-800 hover:text-purple-400 transition-colors duration-200"
+                asChild
+              >
+                <Link 
+                  href="https://x.com/ymohit1603" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <XIcon className="text-gray-400 group-hover:text-purple-400" />
+                  
+                </Link>
+              </Button>
+            </div>
+          </div>
         </div>
+      </footer>
+
     </div>
   );
 }
