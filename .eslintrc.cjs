@@ -17,6 +17,7 @@ const config = {
     /* TypeScript-Specific Rules */
     "@typescript-eslint/array-type": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/unbound-method": "off",
     "@typescript-eslint/consistent-type-imports": [
       "warn",
       {
@@ -32,6 +33,16 @@ const config = {
         caughtErrorsIgnorePattern: "^_" // Ignore unused catch clause variables
       }
     ],
+    "import/no-anonymous-default-export": ["error", {
+      "allowArray": false,
+      "allowArrowFunction": false,
+      "allowAnonymousClass": false,
+      "allowAnonymousFunction": false,
+      "allowCallExpression": true, 
+      "allowNew": false,
+      "allowLiteral": false,
+      "allowObject": true
+    }],
     "@typescript-eslint/require-await": "off",
     "@typescript-eslint/no-misused-promises": [
       "error",

@@ -14,8 +14,9 @@ import Link from "next/link";
 
 const ITEMS_PER_PAGE = 50;
 
-const JobPostingsPage = async ({ searchParams }: { searchParams: { page?: string } }) => {
-  const currentPage = Number(searchParams.page) || 1;
+const JobPostingsPage = async ({ searchParams }: { searchParams: Promise<{page?:string}> }) => {
+  const pages=(await searchParams).page
+  const currentPage = Number(pages) || 1;
   const jobs = await api.jobs.getJobs();
 
   const totalPages = Math.ceil(jobs.length / ITEMS_PER_PAGE);
